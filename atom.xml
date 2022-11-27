@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  
+  <link href="https://bubber2018.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://bubber2018.github.io/"/>
+  <updated>2022-11-27T13:06:44.281Z</updated>
+  <id>https://bubber2018.github.io/</id>
+  
+  <author>
+    <name>John Doe</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>“45”</title>
+    <link href="https://bubber2018.github.io/2022/11/27/45/"/>
+    <id>https://bubber2018.github.io/2022/11/27/45/</id>
+    <published>2022-11-27T13:06:44.000Z</published>
+    <updated>2022-11-27T13:06:44.281Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://bubber2018.github.io/2022/11/27/hello-world/"/>
+    <id>https://bubber2018.github.io/2022/11/27/hello-world/</id>
+    <published>2022-11-27T13:04:37.893Z</published>
+    <updated>2022-11-27T13:04:37.893Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
