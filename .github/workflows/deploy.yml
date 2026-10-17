@@ -34,6 +34,13 @@ jobs:
           npx hexo clean
           npx hexo generate
 
+      - name: Sanity check
+        run: |
+          if [ ! -f public/index.html ]; then
+            echo "::error::public/index.html 缺失——Hexo 在零文章时不生成首页，请保留至少一篇占位文章"
+            exit 1
+          fi
+
       - name: Deploy to master
         uses: peaceiris/actions-gh-pages@v4
         with:

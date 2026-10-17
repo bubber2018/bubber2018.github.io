@@ -7,40 +7,63 @@
 
 | 分支 | 内容 | 谁写 |
 |---|---|---|
-| `main` | 本目录的源码（Hexo 工程） | 手动 commit / push |
-| `master` | 生成出来的静态站点，GitHub Pages 从这里发布 | `hexo deploy` 自动推 |
+| `main` | 本目录的源码（Hexo 工程） | 你手动改 / 网页改 |
+| `master` | 生成出来的静态站点，GitHub Pages 从这里发布 | GitHub Actions 自动推 |
+
+> 发布机制：任何 push 到 `main` 都会触发 `.github/workflows/deploy.yml`，
+> 由 GitHub 跑 `hexo generate` 并 force-push 到 `master`。本地不需要装环境。
 
 > 注意：Hexo 在**零文章**时不会生成首页与归档页（首页会 404）。
 > 所以 `source/_posts/start.md` 是一篇占位文章，写下第一篇后删掉它再生成即可。
 
 ## 写一篇文章
 
+### 方式一：网页写（推荐，任何电脑都一样）
+
+1. 打开 <https://github.com/bubber2018/bubber2018.github.io/tree/main/source/_posts>
+2. 右上角 **Add file → Create new file**
+3. 文件名写 `my-first-post.md`（英文或拼音，它会成为 URL 的一部分）
+4. 内容粘贴：
+
+   ```markdown
+   ---
+   title: 我的第一篇
+   date: 2026-10-17 20:00:00
+   tags: [随笔]
+   categories: [生活]
+   ---
+
+   正文从这里开始，正常写 Markdown 就行。
+   ```
+
+5. 拉到底点 **Commit changes**（提交到 `main`）
+6. 约 1 分钟后自动上线：<https://bubber2018.github.io/>
+
+想要更像编辑器的体验：在仓库页面按 **`.`** 键会打开 `github.dev`（浏览器里的 VSCode），
+可以新建文件、拖拽上传图片，然后同样 commit 到 `main`。
+
+> 图片放 `source/medias/images/`，正文按 `/medias/images/文件名.jpg` 引用。
+
+### 方式二：本地写
+
 ```powershell
-# 1. 新建（自动带 front-matter）
-npx hexo new post "文章标题"
-
-# 2. 用编辑器打开 source/_posts/文章标题.md，写 Markdown 正文
-
-# 3. 本地预览（改完保存会自动刷新）
-npx hexo server          # 打开 http://localhost:4000
-
-# 4. 发布（生成 + 推送到仓库 master 分支）
-npx hexo clean; npx hexo generate; npx hexo deploy
-
-# 5. 提交源码（main 分支）
-git add -A; git commit -m "新文章：我的第一篇"; git push origin main
+.\new-post.ps1 "文章标题"    # 建文件并尝试用 VSCode 打开
+# 写正文……
+.\preview.ps1                # 本地预览 http://localhost:4000
+.\publish.ps1                # 构建校验 + 提交并推送 main（触发自动发布）
 ```
 
-`npx hexo deploy` 会把 `public/` 推到 `bubber2018/bubber2018.github.io` 的 `master` 分支，
-GitHub Pages 随后自动更新。首次部署需要 Git 凭据（凭证管理器会弹一次授权）。
-
-### 嫌命令长就用脚本
+对应的原始命令：
 
 ```powershell
-.\new-post.ps1 "文章标题"     # 建文件（已存在则直接复用）并尝试用 VSCode 打开
-.\publish.ps1                # 清理 + 生成 + 部署
-.\publish.ps1 -NoDeploy      # 只本地生成，不推 GitHub
+npx hexo new post "文章标题"     # 新建
+npx hexo server                  # 预览 :4000
+npx hexo clean; npx hexo generate; git add -A; git commit -m "..."; git push origin main
 ```
+
+> 不要再手动 `hexo deploy`：那会绕过 Actions 直接 force-push `master`，
+> 和 Actions 的 force-orphan 提交历史互相覆盖（内容不会坏，但会多出无谓的强推）。
+> 统一走「push main → Actions 发布」这一条路。
 
 ## Front-matter 字段
 
