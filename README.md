@@ -34,6 +34,14 @@ git add -A; git commit -m "新文章：我的第一篇"; git push origin main
 `npx hexo deploy` 会把 `public/` 推到 `bubber2018/bubber2018.github.io` 的 `master` 分支，
 GitHub Pages 随后自动更新。首次部署需要 Git 凭据（凭证管理器会弹一次授权）。
 
+### 嫌命令长就用脚本
+
+```powershell
+.\new-post.ps1 "文章标题"     # 建文件（已存在则直接复用）并尝试用 VSCode 打开
+.\publish.ps1                # 清理 + 生成 + 部署
+.\publish.ps1 -NoDeploy      # 只本地生成，不推 GitHub
+```
+
 ## Front-matter 字段
 
 ```yaml
