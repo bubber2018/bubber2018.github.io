@@ -3,6 +3,16 @@
 线上站点：<https://bubber2018.github.io/>
 本目录是**源码**，`public/` 是生成结果（不提交）。
 
+分支约定（同一个仓库 `bubber2018/bubber2018.github.io`）：
+
+| 分支 | 内容 | 谁写 |
+|---|---|---|
+| `main` | 本目录的源码（Hexo 工程） | 手动 commit / push |
+| `master` | 生成出来的静态站点，GitHub Pages 从这里发布 | `hexo deploy` 自动推 |
+
+> 注意：Hexo 在**零文章**时不会生成首页与归档页（首页会 404）。
+> 所以 `source/_posts/start.md` 是一篇占位文章，写下第一篇后删掉它再生成即可。
+
 ## 写一篇文章
 
 ```powershell
@@ -16,6 +26,9 @@ npx hexo server          # 打开 http://localhost:4000
 
 # 4. 发布（生成 + 推送到仓库 master 分支）
 npx hexo clean; npx hexo generate; npx hexo deploy
+
+# 5. 提交源码（main 分支）
+git add -A; git commit -m "新文章：我的第一篇"; git push origin main
 ```
 
 `npx hexo deploy` 会把 `public/` 推到 `bubber2018/bubber2018.github.io` 的 `master` 分支，
