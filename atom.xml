@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <author>
+    <name>bubber</name>
+  </author>
+  <generator uri="https://hexo.io/">Hexo</generator>
+  <id>https://bubber2018.github.io/</id>
+  <link href="https://bubber2018.github.io/" rel="alternate"/>
+  <link href="https://bubber2018.github.io/atom.xml" rel="self"/>
+  <rights>All rights reserved 2026, bubber</rights>
+  <subtitle>记录 · 折腾 · 思考</subtitle>
+  <title>bubber</title>
+  <updated>2026-10-17T11:51:40.710Z</updated>
+  <entry>
+    <author>
+      <name>bubber</name>
+    </author>
+    <category term="随笔" scheme="https://bubber2018.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    <category term="随笔" scheme="https://bubber2018.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+    <content>
+      <![CDATA[<p>站点已就绪，接下来会在这里写东西。</p><p>（这是占位文章：写下第一篇后，删除本文件并重新生成即可。）</p>]]>
+    </content>
+    <id>https://bubber2018.github.io/2026/10/17/start/</id>
+    <link href="https://bubber2018.github.io/2026/10/17/start/"/>
+    <published>2026-10-17T12:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p>站点已就绪，接下来会在这里写东西。</p>
+<p>（这是占位文章：写下第一篇后，删除本文件并重新生成即可。）</p>]]>
+    </summary>
+    <title>开始</title>
+    <updated>2026-10-17T11:51:40.710Z</updated>
+  </entry>
+</feed>
