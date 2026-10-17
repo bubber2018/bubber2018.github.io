@@ -76,3 +76,13 @@ public/                  生成结果，勿手改
 - Node v24.21.0 / npm 11.19.0
 - hexo 6.3.0（钉在 package.json）
 - 依赖已装在 `node_modules/`（不入库）；换机后 `npm install` 即可
+
+## 排障
+
+- **`hexo deploy` 报 `unable to auto-detect email address`**：
+  `hexo deploy` 在 `.deploy_git/` 里自己新建一个仓库，读不到本工程的 git 身份。
+  修一次即可：`cd .deploy_git; git config user.name "bubber2018"; git config user.email "bubber@163.com"; cd ..`
+- **首页 404 / 只有 favicon**：文章数为 0 时 Hexo 不生成首页和归档页。
+  保留一篇占位文章即可（现在的 `source/_posts/start.md`）。
+- **页脚年份重复**：`themes/matery/layout/_partial/footer.ejs` 里不要留两个
+  `<span id="year">`。
